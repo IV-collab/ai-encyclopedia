@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="text-red-500">
         AI Encyclopedia
       </div>
     </>
