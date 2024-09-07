@@ -7,7 +7,11 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
   // When level is 0 (The first level of items), show bottom border under each item
   const enableBorder: boolean = level == 0;
 
-  const recursiveAccordionItem = (index: number, trigger: string, content: SidebarItem[] | string) => {
+  const recursiveAccordionItem = (
+    index: number,
+    trigger: string,
+    content: SidebarItem[] | string,
+  ): React.ReactNode | string => {
     if (typeof content == 'string') {
       return 'ERROR';
     } else {
@@ -23,7 +27,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
     }
   };
 
-  const defaultAccordionItem = (index: number, trigger: string, content: SidebarItem[] | string) => {
+  const defaultAccordionItem = (index: number, trigger: string, content: SidebarItem[] | string): React.ReactNode => {
     return (
       // Value of item must be unique, such that triggers don't interfere with other items
       <AccordionItem value={`item-${index}`} enableBorder={enableBorder}>
