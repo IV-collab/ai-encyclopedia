@@ -1,12 +1,7 @@
 import { SidebarItemsTypes } from '@/lib/enums/sidebar';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
-export type SidebarItem = {
-  type: SidebarItemsTypes;
-  trigger: string;
-  content: string | SidebarItem[];
-};
+import { SidebarItem } from '@/components/ui/sidebar/Sidebar';
 
 export function IVSidebarItems({ items }: { items: SidebarItem[] }) {
   return (
