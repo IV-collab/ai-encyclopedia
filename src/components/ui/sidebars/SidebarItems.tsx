@@ -1,7 +1,7 @@
 import { SidebarItemsTypes } from '@/lib/enums/sidebar';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { SidebarItem } from '@/components/ui/sidebar/Sidebar';
+import { SidebarItem } from '@/components/ui/sidebars/Sidebar';
 
 export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; level?: number }) {
   // When level is 0 (The first level of items), show bottom border under each item
