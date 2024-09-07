@@ -3,7 +3,10 @@ import { SidebarItemsTypes } from '@/lib/enums/sidebar';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { SidebarItem } from '@/components/ui/sidebar/Sidebar';
 
-export function IVSidebarItems({ items }: { items: SidebarItem[] }) {
+export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; level?: number }) {
+  // When level is 0 (The first level of items), show bottom border under each item
+  const enableBorder: boolean = level == 0;
+
   return (
     <Accordion type="single" collapsible>
       {items && items.length > 0 ? (
@@ -14,16 +17,16 @@ export function IVSidebarItems({ items }: { items: SidebarItem[] }) {
               'ERROR'
             ) : (
               // Value of item must be unique, such that triggers don't interfere with other items
-              <AccordionItem value={`item-${index}`}>
+              <AccordionItem value={`item-${index}`} enableBorder={enableBorder}>
                 <AccordionTrigger>{item.trigger}</AccordionTrigger>
                 <AccordionContent>
-                  <IVSidebarItems items={item.content} />
+                  <IVSidebarItems items={item.content} level={level + 1} />
                 </AccordionContent>
               </AccordionItem>
             )
           ) : (
             // If item is not of a special type, render item directly
-            <AccordionItem value={`item-${index}`}>
+            <AccordionItem value={`item-${index}`} enableBorder={enableBorder}>
               <AccordionTrigger>{item.trigger}</AccordionTrigger>
               <AccordionContent>{typeof item.content == 'string' ? item.content : 'ERROR'}</AccordionContent>
             </AccordionItem>
