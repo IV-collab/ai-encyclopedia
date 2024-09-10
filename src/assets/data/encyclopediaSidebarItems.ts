@@ -12,6 +12,7 @@ const encyclopediaSidebarItems: SidebarItem[] = [
         type: SidebarItemTypes.DEFAULT,
         trigger: 'Introduction',
         content: 'What is it?',
+        link: 'git/what-is-it',
       },
     ],
   },
