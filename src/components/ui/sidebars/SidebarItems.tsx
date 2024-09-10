@@ -1,4 +1,4 @@
-import { SidebarItemsTypes } from '@/lib/enums/sidebar';
+import { SidebarItemTypes } from '@/lib/enums/sidebar';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { SidebarItem } from '@/components/ui/sidebars/Sidebar';
@@ -41,7 +41,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
     <Accordion type="single" collapsible>
       {items && items.length > 0 ? (
         items.map((item, index) =>
-          item.type == SidebarItemsTypes.NESTED
+          item.type == SidebarItemTypes.NESTED
             ? recursiveAccordionItem(index, item.trigger, item.content)
             : defaultAccordionItem(index, item.trigger, item.content),
         )
