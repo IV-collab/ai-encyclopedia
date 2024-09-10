@@ -17,7 +17,11 @@ export function IVIcon({ type, size = IconSizes.MEDIUM }: { type: IconTypes; siz
     }
   };
 
-  return <img src={iconSrc(type)} alt="Logo" className={size} />;
+  return (
+    <div className="iv-icon">
+      <img src={iconSrc(type)} alt="Logo" className={size} />
+    </div>
+  );
 }
 
 export default IVIcon;
