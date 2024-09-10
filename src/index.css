@@ -10,37 +10,37 @@
 }
 
 html {
-    /* Fit to Screen */
-    max-width: 100vw;
-    width: 100%;
+  /* Fit to Screen */
+  max-width: 100vw;
+  width: 100%;
 
-    margin: 0 0;
-    padding: 0 0;
+  margin: 0 0;
+  padding: 0 0;
 
-    overflow-x: hidden;
+  overflow-x: hidden;
 
-    /*for smooth scrolling, when redirected to different parts of the page via ie: a button*/
-    scroll-behavior: smooth;
+  /*for smooth scrolling, when redirected to different parts of the page via ie: a button*/
+  scroll-behavior: smooth;
 }
 
 body {
-    max-width: 100vw;
-    width: 100%;
-  
-    margin: 0 0;
-    padding: 0 0;
+  max-width: 100vw;
+  width: 100%;
 
-    overflow-x: hidden;
-    /* overflow-y:scroll; */
+  margin: 0 0;
+  padding: 0 0;
+
+  overflow-x: hidden;
+  /* overflow-y:scroll; */
 }
 
-.iv-page {
-    width: 100%;
+.standard-page {
+  width: 100%;
 
-    margin: 0 0;
-    padding: 0 0;
+  margin: 0 0;
+  padding: 0 0;
 
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -70,6 +70,11 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    /* Manually added */
+    --near-black: 0 0% 20%;
+    --near-black-foreground: 0 0% 80%;
+    --dark-grey: 0 0% 30%;
+    --dark-grey-foreground: 0 0% 70%;
   }
   .dark {
     --background: 0 0% 3.9%;

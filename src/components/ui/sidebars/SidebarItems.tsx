@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { SidebarItemTypes } from '@/lib/enums/sidebar';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -27,12 +29,22 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
     }
   };
 
-  const defaultAccordionItem = (index: number, trigger: string, content: SidebarItem[] | string): React.ReactNode => {
+  const defaultAccordionItem = (
+    index: number,
+    trigger: string,
+    content: SidebarItem[] | string,
+    link?: string,
+  ): React.ReactNode => {
     return (
       // Value of item must be unique, such that triggers don't interfere with other items
       <AccordionItem value={`item-${index}`} enableBorder={enableBorder}>
         <AccordionTrigger>{trigger}</AccordionTrigger>
-        <AccordionContent>{typeof content == 'string' ? content : 'ERROR'}</AccordionContent>
+        <AccordionContent>
+          {
+            // Params content and link must be valid
+            typeof content == 'string' && typeof link === 'string' ? <Link to={link}>{content}</Link> : 'ERROR'
+          }
+        </AccordionContent>
       </AccordionItem>
     );
   };
@@ -43,7 +55,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
         items.map((item, index) =>
           item.type == SidebarItemTypes.NESTED
             ? recursiveAccordionItem(index, item.trigger, item.content)
-            : defaultAccordionItem(index, item.trigger, item.content),
+            : defaultAccordionItem(index, item.trigger, item.content, item.link),
         )
       ) : (
         <div>ERROR</div>

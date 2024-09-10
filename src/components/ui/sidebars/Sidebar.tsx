@@ -9,6 +9,7 @@ export type SidebarItem = {
   id: string;
   type: SidebarItemTypes;
   trigger: string;
+  link?: string;
   content: string | SidebarItem[];
 };
 
