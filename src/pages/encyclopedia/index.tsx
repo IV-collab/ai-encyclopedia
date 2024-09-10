@@ -1,11 +1,11 @@
 import { Outlet, Link } from 'react-router-dom';
 import { IVSidebar } from '@/components/ui/sidebars/Sidebar';
-import encyclopediaPages from '@/assets/data/encyclopediaPages';
+import encyclopediaSidebarItems from '@/assets/data/encyclopediaSidebarItems';
 
 const EncyclopediaPage = () => {
   return (
     <div className="iv-page h-full">
-      <IVSidebar items={encyclopediaPages} />
+      <IVSidebar items={encyclopediaSidebarItems} />
       <button className="bg-blue-500 w-64 h-10">
         <Link to="react">React</Link>
       </button>
