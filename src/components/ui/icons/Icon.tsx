@@ -1,4 +1,4 @@
-import capybaraHead from '@/assets/capybara_head.svg';
+import capybaraHead from '@/assets/img/capybara_head.svg';
 
 import { IconTypes, IconSizes } from '@/lib/enums/icon';
 

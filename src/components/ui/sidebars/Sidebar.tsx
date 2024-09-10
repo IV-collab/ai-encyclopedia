@@ -1,4 +1,4 @@
-import { SidebarItemsTypes } from '@/lib/enums/sidebar';
+import { SidebarItemTypes } from '@/lib/enums/sidebar';
 import { IconTypes } from '@/lib/enums/icon';
 import { BRAND_TITLE } from '@/lib/enums/generic';
 
@@ -6,7 +6,8 @@ import { IVSidebarItems } from '@/components/ui/sidebars/SidebarItems';
 import { IVIcon } from '@/components/ui/icons/Icon';
 
 export type SidebarItem = {
-  type: SidebarItemsTypes;
+  id: string;
+  type: SidebarItemTypes;
   trigger: string;
   content: string | SidebarItem[];
 };

@@ -1,4 +1,4 @@
-export enum SidebarItemsTypes {
+export enum SidebarItemTypes {
   DEFAULT = 'default',
   NESTED = 'nested',
 }
