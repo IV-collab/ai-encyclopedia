@@ -1,7 +1,7 @@
 import { SidebarItem } from '@/components/ui/sidebars/Sidebar';
 import { SidebarItemTypes } from '@/lib/enums/sidebar';
 
-const encyclopediaPages: SidebarItem[] = [
+const encyclopediaSidebarItems: SidebarItem[] = [
   {
     id: '0',
     type: SidebarItemTypes.NESTED,
@@ -30,4 +30,4 @@ const encyclopediaPages: SidebarItem[] = [
   },
 ];
 
-export default encyclopediaPages;
+export default encyclopediaSidebarItems;
