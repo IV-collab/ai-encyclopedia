@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-
 import EncyclopediaPage from '@/pages/encyclopedia';
 import ReactPage from '@/pages/encyclopedia/react';
 import EncyclopediaPageGitWhatIsIt from '@/pages/encyclopedia/git/whatIsIt';
+import SlateTestPage from '@/pages/encyclopedia/slate-test';
 
 const MainRouter = () => {
   return (
@@ -10,6 +11,7 @@ const MainRouter = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/encyclopedia" />} />
         <Route path="/encyclopedia" element={<EncyclopediaPage />}>
+          <Route path="slate" element={<SlateTestPage />} />
           <Route path="git" element={<Outlet />}>
             <Route path="what-is-it" element={<EncyclopediaPageGitWhatIsIt />} />
           </Route>
