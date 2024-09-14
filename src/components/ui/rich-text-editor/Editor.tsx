@@ -1,9 +1,10 @@
-import { useState, useCallback, ReactElement, KeyboardEvent } from 'react';
+import { useState, useCallback, ReactElement } from 'react';
 
-import { createEditor, Editor, Descendant, Transforms, Element } from 'slate';
+import { createEditor, Editor, Descendant } from 'slate';
 import { Slate, Editable, withReact, RenderElementProps } from 'slate-react';
 
 import { CustomElementTypes } from '@/lib/enums/iv-editor';
+import { handleKeyDown } from '@/lib/helpers/iv-editor';
 
 import CodeElement from '@/components/ui/rich-text-editor/custom-elements/CodeElement';
 import DefaultElement from '@/components/ui/rich-text-editor/custom-elements/DefaultElement';
@@ -28,23 +29,6 @@ const IVEditor = () => {
         return <DefaultElement {...props} />;
     }
   }, []);
-
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>, editor: Editor) => {
-    if (e.key === 'c' && (e.ctrlKey || e.metaKey)) {
-      // Prevent the "`" from being inserted by default.
-      e.preventDefault();
-      // Determine whether any of the currently selected blocks are code blocks.
-      const [match] = Editor.nodes(editor, {
-        match: (n) => Element.isElement(n) && n.type === CustomElementTypes.CODE,
-      });
-      // Toggle the block type depending on whether there's already a match.
-      Transforms.setNodes(
-        editor,
-        { type: match ? CustomElementTypes.PARAGRAPH : CustomElementTypes.CODE },
-        { match: (n) => Element.isElement(n) && Editor.isBlock(editor, n) },
-      );
-    }
-  };
 
   return (
     <Slate editor={editor} initialValue={initialValue}>
