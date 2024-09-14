@@ -15,7 +15,7 @@ export type SidebarItem = {
 
 export function IVSidebar({ items }: { items: SidebarItem[] }) {
   return (
-    <div className="iv-sidebar w-96 min-h-screen pl-8 pr-8 pt-8 bg-secondary">
+    <div className="iv-sidebar min-w-96 min-h-screen pl-8 pr-8 pt-8 bg-secondary">
       <div className="flex flex-row items-center pb-10 border-b">
         <IVIcon type={IconTypes.CAPYBARA} />
         <div className="flex items-center ml-2">
