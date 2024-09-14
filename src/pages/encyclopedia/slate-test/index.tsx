@@ -30,7 +30,7 @@ const SlateTestPage = () => {
       <div className="m-0 pt-40 pl-60 pr-60 flex flex-col text-nearBlack">HELLO</div>
       <div className="fixed bottom-0 left-0 ml-96 w-[calc(100%-24rem)] h-40 bg-gray-50">
         <Slate editor={editor} initialValue={initialValue}>
-          <Editable className="size-full" />
+          <Editable className="size-full outline-none" />
         </Slate>
       </div>
     </div>

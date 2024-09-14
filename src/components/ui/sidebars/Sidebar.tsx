@@ -28,7 +28,7 @@ export function IVSidebar({ items }: { items: SidebarItem[] }) {
         <IVSidebarItems items={items} />
       </div>
       {/* Footer */}
-      <div className="pb-10">
+      <div className="pb-10 pt-10 border-t">
         <div className="font-medium">
           <Link to={'slate'}>Generate content</Link>
         </div>
