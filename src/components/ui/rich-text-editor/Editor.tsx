@@ -33,7 +33,7 @@ const IVEditor = () => {
   return (
     <Slate editor={editor} initialValue={initialValue}>
       <Editable
-        className="size-full outline-none"
+        className="size-full outline-none overflow-y-auto"
         renderElement={renderElement}
         onKeyDown={(e) => handleKeyDown(e, editor)}
       />

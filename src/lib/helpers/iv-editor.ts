@@ -19,8 +19,21 @@ export const handleTriggerCodeBlock = (editor: Editor) => {
 };
 
 export const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>, editor: Editor) => {
-  if ((e.key === 'C' && e.shiftKey && e.ctrlKey) || (e.key === 'c' && e.shiftKey && e.metaKey)) {
-    e.preventDefault();
-    handleTriggerCodeBlock(editor);
+  switch (e.key) {
+    case 'C':
+      if (e.shiftKey && e.ctrlKey) {
+        e.preventDefault(); // Prevent the "C" from being inserted by default.
+        handleTriggerCodeBlock(editor);
+      }
+      break;
+    case 'c':
+      if (e.shiftKey && e.metaKey) {
+        e.preventDefault();
+        handleTriggerCodeBlock(editor);
+      }
+      break;
+    case 'b':
+      e.preventDefault();
+      break;
   }
 };
