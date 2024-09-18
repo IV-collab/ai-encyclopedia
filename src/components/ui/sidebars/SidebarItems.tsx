@@ -10,6 +10,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
   const enableBorder: boolean = level == 0;
 
   const recursiveAccordionItem = (
+    id: string,
     index: number,
     trigger: string,
     content: SidebarItem[] | string,
@@ -19,7 +20,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
     } else {
       return (
         // Value of item must be unique, such that triggers don't interfere with other items
-        <AccordionItem value={`item-${index}`} enableBorder={enableBorder}>
+        <AccordionItem key={`accordion-item-${id}`} value={`item-${index}`} enableBorder={enableBorder}>
           <AccordionTrigger>{trigger}</AccordionTrigger>
           <AccordionContent>
             <IVSidebarItems items={content} level={level + 1} />
@@ -30,6 +31,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
   };
 
   const defaultAccordionItem = (
+    id: string,
     index: number,
     trigger: string,
     content: SidebarItem[] | string,
@@ -37,7 +39,7 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
   ): React.ReactNode => {
     return (
       // Value of item must be unique, such that triggers don't interfere with other items
-      <AccordionItem value={`item-${index}`} enableBorder={enableBorder}>
+      <AccordionItem key={`accordion-item-${id}`} value={`item-${index}`} enableBorder={enableBorder}>
         <AccordionTrigger>{trigger}</AccordionTrigger>
         <AccordionContent>
           {
@@ -54,8 +56,8 @@ export function IVSidebarItems({ items, level = 0 }: { items: SidebarItem[]; lev
       {items && items.length > 0 ? (
         items.map((item, index) =>
           item.type == SidebarItemTypes.NESTED
-            ? recursiveAccordionItem(index, item.trigger, item.content)
-            : defaultAccordionItem(index, item.trigger, item.content, item.link),
+            ? recursiveAccordionItem(item.id, index, item.trigger, item.content)
+            : defaultAccordionItem(item.id, index, item.trigger, item.content, item.link),
         )
       ) : (
         <div>ERROR</div>
