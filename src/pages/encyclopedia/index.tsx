@@ -1,15 +1,21 @@
 import { Outlet } from 'react-router-dom';
-import { IVSidebar } from '@/components/ui/sidebars/Sidebar';
+
+import SidebarProvider from '@/contexts/useSidebar';
+
 import encyclopediaSidebarItems from '@/assets/data/encyclopediaSidebarItems';
+
+import { IVSidebar } from '@/components/ui/sidebars/Sidebar';
 
 const EncyclopediaPage = () => {
   return (
-    <div className="iv-encyclopedia standard-page flex flex-row">
-      <IVSidebar items={encyclopediaSidebarItems} />
-      <div className="flex-grow">
-        <Outlet />
+    <SidebarProvider>
+      <div className="iv-encyclopedia standard-page flex flex-row">
+        <IVSidebar items={encyclopediaSidebarItems} />
+        <div className="flex-grow flex justify-center">
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
